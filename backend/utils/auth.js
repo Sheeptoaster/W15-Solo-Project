@@ -40,7 +40,6 @@ const restoreUser = (req, res, next) => {
         try {
             const { id } = jwtPayload.data;
             const currentUser = await User.scope('currentUser').findByPk(id);
-            console.log(currentUser);
             req.user = currentUser;
         } catch (e) {
             res.clearCookie('token');
