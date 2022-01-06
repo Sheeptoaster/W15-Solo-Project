@@ -1,0 +1,14 @@
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 60vh;
+    max-width: 30vw;
+    margin: 10vh auto;
+
+    border: 1px solid black;
+    padding:10vh 10vw;
+    border-radius: 2em;
+}
+
+
