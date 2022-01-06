@@ -1,6 +1,6 @@
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
-const csrfFetch = async (url, options = {}) => {
+export async function csrfFetch (url, options = {}) {
     //Defaults method to GET if none provided
     options.method = options.method || "GET";
     //Defaults headers to Empty Object if none provided
@@ -9,7 +9,7 @@ const csrfFetch = async (url, options = {}) => {
 
     //If Method is not GET -> sets Content-Type to application/json
     //If Method is not GET -> sets XSRF-Token to value of XSRF-TOKEN Cookie value
-    if(options.methods.toUpperCase() !== "GET") {
+    if(options.method.toUpperCase() !== "GET") {
         options.headers['Content-Type'] =
             options.headers['Content-Type'] || 'application/json';
         options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
@@ -23,4 +23,9 @@ const csrfFetch = async (url, options = {}) => {
 
     //If res code < 400 returns res
     return res;
+}
+
+
+export function restoreCSRF() {
+    return csrfFetch('/api/csrf/restore');
 }
