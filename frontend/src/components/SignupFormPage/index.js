@@ -31,48 +31,70 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-                <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Username
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+        <div className="signup-form-container">
+            <form onSubmit={handleSubmit} className="signup-form">
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <h1>Sign Up</h1>
+                <div className="sign-up-email">
+                    <label className="sign-up-email-label">
+                        Email
+                    </label>
+                    <input
+                        type="text"
+                        className="sign-up-email-input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <span>Enter Your Full Name</span>
+                </div>
+
+                <div className="sign-up-username">
+                    <label className="sign-up-username-label">
+                        Username
+                    </label>
+                    <input
+                        type="text"
+                        className="sign-up-username-input"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                    <span>Enter Your Email</span>
+                </div>
+
+                <div className="sign-up-password">
+                    <label className="sign-up-password-label">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        className="sign-up-password-input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <span>Enter Your Password</span>
+                </div>
+
+                <div className="sign-up-confirm-password">
+                    <label className="sign-up-confirm-password-label">
+                        Confirm Password
+                    </label>
+                    <input
+                        type="password"
+                        className="sign-up-confirm-password-input"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                    <span>Confirm Your Password</span>
+                </div>
+                <button type="submit" className="sign-up-submit-btn">Sign Up</button>
+            </form >
+        </div>
     );
 }
 

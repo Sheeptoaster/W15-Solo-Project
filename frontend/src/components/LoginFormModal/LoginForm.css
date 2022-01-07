@@ -1,1 +1,106 @@
+div #modal-content {
+    border-radius: 2em;
+    background: linear-gradient(45deg, var(--accent-dark), var(--primary-accent));
+}
 
+.login-form-container {
+    display: flex;
+    width: 50em;
+    height: 40em;
+    margin: 2% auto;
+    align-content: flex-start;
+    margin-top: 10vh;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 10% auto;
+    background: whitesmoke;
+    border-radius: 1.25em;
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.login-form h1 {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5c5c5c;
+    font-size: x-large;
+}
+
+.login-form div {
+    display: block;
+    padding: 9px;
+    border: 1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.login-form button {
+    display: block;
+    padding: 9px;
+    width: 15em;
+    border: 1px solid #DDDDDD;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: var(--accent-dark);
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    margin: auto;
+    text-align: center;
+}
+
+
+.login-form button, .login-form a {
+    display: block;
+    padding: 9px;
+    width: 150px;
+    border: 1px solid #DDDDDD;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: var(--accent-dark);
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.login-form a {
+    margin-top: 30%;
+}
+
+.login-form div > label {
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: whitesmoke;
+    height: 14px;
+    padding: 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-form input[type='text'], input[type='password'] {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.login-form button:hover, .login-form button:hover, .login-form a:hover {
+    box-shadow: inset -.75px -.65px 4px 1px var(--primary-accent);
+    color: #FFF;
+}

@@ -1,0 +1,93 @@
+.signup-form-container {
+    display: flex;
+    background-image: url('../../../public/img/pub-image.jpg');
+    width: 90em;
+    height: 50em;
+    margin: auto;
+    border-radius: 2em;
+    align-content: center;
+    margin-top: 10vh;
+}
+
+.signup-form {
+    max-width:400px;
+	margin: 10% auto;
+	background: whitesmoke;
+	border-radius:1.25em;
+	padding:20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.signup-form h1 {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5c5c5c;
+    font-size: x-large;
+}
+
+.signup-form div {
+    display: block;
+    padding: 9px;
+    border: 1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+
+.signup-form button {
+    display: block;
+    padding: 9px;
+    width: 15em;
+    border: 1px solid #DDDDDD;
+    color: whitesmoke;
+    background-color: var(--accent-dark);
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    margin: auto;
+    text-align: center;
+}
+
+.signup-form div > label {
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: whitesmoke;
+    height: 14px;
+    padding: 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-form input[type='text'], input[type='password'] {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    font-size: 16px;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.signup-form div > span {
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+.signup-form button:hover, .signup-form button:hover {
+    box-shadow: inset -.75px -.65px 4px 1px var(--primary-accent);
+    color: #FFF;
+}
