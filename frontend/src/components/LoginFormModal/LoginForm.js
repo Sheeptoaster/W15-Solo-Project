@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import LoginFormModal from ".";
+
 
 import './LoginForm.css'
 
@@ -11,6 +13,10 @@ function LoginForm() {
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
+
+    console.log(LoginFormModal);
+
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,6 +28,16 @@ function LoginForm() {
             }
         );
     };
+
+    const handleLink = (e) => {
+        e.preventDefault()
+
+        // setShowModal(false);
+
+        let path = '/signup';
+        return history.push(path);
+    }
+
 
     return (
         <div className="login-form-container">
@@ -63,7 +79,9 @@ function LoginForm() {
 
                 <button type="submit" className="login-submit-btn">Log In</button>
 
-                <NavLink to="/signup" className='login-link-to-signup'>Don't have an account?</NavLink>
+                {/* <Link to="/signup" className='login-link-to-signup'>Don't have an account?</Link> */}
+
+                <button type="submit">Don't have an account?</button>
 
             </form>
         </div>
