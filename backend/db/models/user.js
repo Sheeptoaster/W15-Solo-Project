@@ -31,6 +31,12 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
+    avatarUrl: {
+      type: DataTypes.STRING,
+    },
+    bio: {
+      type: DataTypes.STRING,
+    },
   },
     {
       defaultScope: {
@@ -49,6 +55,9 @@ module.exports = (sequelize, DataTypes) => {
     });
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Drink, { foreignKey: 'userId' });
+    User.hasMany(models.Store, { foreignKey: 'ownerId' });
+    User.hasMany(models.Checkin, { foreignKey: 'userId' });
   };
   //User Methods Placement Maybe Incorrect
 

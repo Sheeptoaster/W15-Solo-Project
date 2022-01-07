@@ -22,6 +22,12 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      avatarUrl: {
+        type: Sequelize.STRING,
+      },
+      bio: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
