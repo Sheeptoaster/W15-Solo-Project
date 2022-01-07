@@ -1,0 +1,90 @@
+:root {
+    --primary: #8C6751;
+    --primary-accent: #D9BD9C;
+    --primary-light-accent: #867D8C;
+    --accent-light: #F2E7DC;
+    --accent-dark: #591902;
+}
+
+
+.navbar {
+    background-color: var(--primary);
+	background-image: linear-gradient(to bottom, #0003, transparent);
+	border-bottom: 1px solid #0003;
+	box-shadow: 0 0 32px var(--primary-accent);
+	font-size: 2em;
+	font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--accent-dark);
+    margin-right: 1em;
+}
+
+.navbar > div {
+	color: var(--primary-accent);
+	padding: .75em;
+	text-align: center;
+	text-decoration: none;
+	transition: all .5s;
+}
+
+.navbar > div:hover {
+	background: var(--primary-accent);
+	color: var(--accent-dark);
+    font-weight: lighter;
+}
+
+.navbar > .nav-line {
+	background: var(--accent-dark);
+	height: 1px;
+	pointer-events: none;
+}
+
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(var(--items), 1fr);
+    position: relative;
+}
+
+
+.nav-line > .nav-line {
+    opacity: 0;
+    transition: all .5s;
+    position: absolute;
+	bottom: 0;
+	left: var(--left, calc(100% / var(--items) * (var(--index) - 1)));
+	width: var(--width, calc(100% / var(--items)));
+	--index: 0;
+}
+
+.navbar > div:hover ~ .nav-line {
+    opacity: 1;
+}
+
+.login-and-signup-links {
+    display: block;
+    margin: auto;
+}
+
+
+.navbar > div:nth-of-type(1):hover ~ .nav-line { --index: 1; }
+.navbar > div:nth-of-type(2):hover ~ .nav-line { --index: 2; }
+.navbar > div:nth-of-type(3):hover ~ .nav-line { --index: 3; }
+.navbar > div:nth-of-type(4):hover ~ .nav-line { --index: 4; }
+.navbar > div:nth-of-type(5):hover ~ .nav-line { --index: 5; }
+.navbar > div:nth-of-type(6):hover ~ .nav-line { --index: 6; }
+.navbar > div:nth-of-type(7):hover ~ .nav-line { --index: 7; }
+.navbar > div:nth-of-type(8):hover ~ .nav-line { --index: 8; }
+.navbar > div:nth-of-type(9):hover ~ .nav-line { --index: 9; }
+.navbar > div:nth-of-type(10):hover ~ .nav-line { --index: 10; }
+.navbar > div:last-of-type:hover ~ .nav-line { --index: var(--items); }

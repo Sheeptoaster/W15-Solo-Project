@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+
+import './LoginForm.css'
 
 function LoginForm() {
     const dispatch = useDispatch();
@@ -21,32 +24,49 @@ function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
-        </form>
+        <div className="login-form-container">
+            <form onSubmit={handleSubmit} className="login-form">
+
+                <ul>
+                    {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                    ))}
+                </ul>
+
+                <h1>Login</h1>
+
+                <div>
+                    <label className="login-username-label">
+                        Username or Email
+                    </label>
+                    <input
+                        type="text"
+                        className="login-username-label"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label className="login-password-label">
+                        Password
+                    </label>
+                    <input
+                        type="password"
+                        className="login-password-input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <button type="submit" className="login-submit-btn">Log In</button>
+
+                <NavLink to="/signup" className='login-link-to-signup'>Don't have an account?</NavLink>
+
+            </form>
+        </div>
     );
 }
 
