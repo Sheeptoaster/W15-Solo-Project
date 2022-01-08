@@ -8,6 +8,8 @@ module.exports = {
         email: 'demo@user.io',
         username: 'Demo-lition',
         hashedPassword: bcrypt.hashSync('password'),
+        avatarUrl: 'https://bellfund.ca/wp-content/uploads/2018/03/demo-user.jpg',
+        bio: 'This is the Demo User Bio!',
       },
       {
         email: 'fake1@user.io',
