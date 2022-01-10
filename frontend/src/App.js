@@ -25,7 +25,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-        <Route path="/profiles/:id">
+        <Route path="/users/:id">
           <ProfilePage />
         </Route>
 
