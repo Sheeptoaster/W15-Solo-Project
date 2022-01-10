@@ -1,1 +1,8 @@
 /* TODO Add site wide styles */
+:root {
+    --primary: #8C6751;
+    --primary-accent: #D9BD9C;
+    --primary-light-accent: #867D8C;
+    --accent-light: #F2E7DC;
+    --accent-dark: #591902;
+}

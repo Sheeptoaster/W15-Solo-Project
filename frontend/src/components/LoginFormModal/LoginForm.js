@@ -8,7 +8,7 @@ import LoginFormModal from ".";
 
 import './LoginForm.css'
 
-function LoginForm() {
+function LoginForm({setShowModal}) {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
@@ -32,7 +32,7 @@ function LoginForm() {
     const handleLink = (e) => {
         e.preventDefault()
 
-        // setShowModal(false);
+        setShowModal(false);
 
         let path = '/signup';
         return history.push(path);
@@ -79,9 +79,8 @@ function LoginForm() {
 
                 <button type="submit" className="login-submit-btn">Log In</button>
 
-                {/* <Link to="/signup" className='login-link-to-signup'>Don't have an account?</Link> */}
 
-                <button type="submit">Don't have an account?</button>
+                <button type="submit" onClick={handleLink}>Don't have an account?</button>
 
             </form>
         </div>
