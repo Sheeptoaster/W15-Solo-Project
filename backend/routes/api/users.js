@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { handleValidationErrors } = require('../../utils/validation')
-const { User } = require('../../db/models');
+const { User, Checkin, Drink, Store } = require('../../db/models');
 
 const router = express.Router();
 
@@ -42,6 +42,38 @@ router.post('/', validateSignUp, asyncHandler(async (req, res) => {
     });
 })
 );
+
+router.get('/:userId', asyncHandler(async (req, res) => {
+    const userId = req.params.userId;
+
+    const currentUser = await User.findByPk(userId);
+
+    res.json({ currentUser })
+}))
+
+router.get('/:userId/checkins', asyncHandler(async (req, res) => {
+    const userId = req.params.userId;
+
+    const userDetails = await Checkin.findAll({
+        where: {
+            userId: userId
+        },
+        include: [
+            {
+                model: Drink,
+                where: {
+                    userId
+                }
+            },
+            {
+                model: Store,
+            }
+        ]
+    })
+
+    res.json({ userDetails });
+}))
+
 
 
 
