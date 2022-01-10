@@ -1,6 +1,7 @@
 // frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -32,17 +33,17 @@ function ProfileButton({ user }) {
     return (
         <>
             <button onClick={openMenu}>
-                {/* <i className="fas fa-user-circle"></i> */}
                 <img
-                src={user.avatarUrl}
-                height={'50px'}
-                width={'60px'}
+                    src={user.avatarUrl}
+                    height={'50px'}
+                    width={'60px'}
                 ></img>
             </button>
             {showMenu && (
                 <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
+                    <li>
+                        <NavLink to={`/profile/${user.id}`}>{user.username} Profile</NavLink>
+                    </li>
                     <li>
                         <button onClick={logout}>Log Out</button>
                     </li>

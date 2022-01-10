@@ -1,11 +1,3 @@
-:root {
-    --primary: #8C6751;
-    --primary-accent: #D9BD9C;
-    --primary-light-accent: #867D8C;
-    --accent-light: #F2E7DC;
-    --accent-dark: #591902;
-}
-
 
 .navbar {
     background-color: var(--primary);
@@ -44,7 +36,7 @@
 }
 
 .navbar-container {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -74,6 +66,15 @@
 .login-and-signup-links {
     display: block;
     margin: auto;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: var(--primary-accent);
+    list-style-type: none;
+    font-size: larger;
+    top: 95px;
+    left: 75%;
 }
 
 
