@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,11 +25,15 @@ function App() {
             <SignupFormPage />
           </Route>
 
+        <Route path="/profiles/:id">
+          <ProfilePage />
+        </Route>
+
         </Switch>
       )}
 
       <SplashPage />
-      
+
     </>
   );
 }
