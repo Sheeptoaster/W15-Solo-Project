@@ -8,6 +8,16 @@ const { User, Checkin, Drink, Store } = require('../../db/models');
 
 const router = express.Router();
 
+router.get('/', asyncHandler(async (req, res) => {
+    const data = await Store.findAll({
+        order: [
+            ['createdAt']
+        ],
+        limit: 3,
+    })
+    res.json({data});
+}))
+
 router.get('/:storeId', asyncHandler(async (req, res) => {
     const storeId = req.params.storeId;
 
