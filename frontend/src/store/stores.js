@@ -18,6 +18,9 @@ export const getStoresOverview = () => async dispatch => {
 }
 
 const initialState = {
+    user: {},
+    checkins: {},
+    drinks: {},
     stores: {},
 }
 

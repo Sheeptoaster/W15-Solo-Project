@@ -52,6 +52,8 @@ export const getCheckinOverview = () => async dispatch => {
 const initialState = {
     user: {},
     checkins: {},
+    drinks: {},
+    stores: {},
 }
 
 const userReducer = (state = initialState, action) => {

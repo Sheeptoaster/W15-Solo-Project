@@ -6,7 +6,7 @@ import * as storeActions from '../../store/stores';
 
 import CheckinOverview from './CheckinOverview';
 import DrinkOverview from './DrinkOverview';
-
+import StoresOverview from './StoresOverview';
 
 
 import './SplashPage.css';
@@ -34,9 +34,7 @@ function SplashPage() {
 
             <DrinkOverview drinks={drinks} />
 
-            <div>
-                <h2>Popular Bars</h2>
-            </div>
+            <StoresOverview stores={stores} />
 
         </div>
     )

@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom"
 
 
 function CheckinOverview({ checkin }) {
@@ -11,7 +12,7 @@ function CheckinOverview({ checkin }) {
 
                         <div className="checkin-user-info-container">
                             <img src={check?.User.avatarUrl} className="checkin-user-avatar"></img>
-                            <h3 className="checkin-user-username">{check?.User.username}</h3>
+                            <h3 className="checkin-user-username"><NavLink style={{textDecoration: 'none'}} to={`/users/${check?.User.id}`}>{check?.User.username}</NavLink></h3>
                         </div>
 
                         <div className="checkin-info-container">

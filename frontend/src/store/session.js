@@ -63,7 +63,12 @@ export const logout = () => async (dispatch) => {
     return response;
 };
 
-const initialState = { user: null }
+const initialState = {
+    user: {},
+    checkins: {},
+    drinks: {},
+    stores: {},
+}
 
 const sessionReducer = (state = initialState, action) => {
     let newState;
