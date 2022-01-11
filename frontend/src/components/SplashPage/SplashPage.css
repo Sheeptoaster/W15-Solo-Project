@@ -2,3 +2,100 @@
 .checkin-user-username > a {
     color: var(--accent-dark)
 }
+
+.homepage-h2 {
+    text-align: center;
+}
+
+.homepage-checkin-overview-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+/*
+HomePage Drink Styling------------
+*/
+
+.homepage-drink-overview-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.homepage-drink-and-image-container {
+    display: flex;
+    vertical-align: center;
+    margin-top: 2em;
+    margin-left: 1em;
+}
+
+.homepage-drink-description {
+    border: 1px solid black;
+    margin: 0 1em;
+    padding: 1em;
+    background-color: var(--accent-light);
+    color: var(--accent-dark)
+}
+
+.homepage-drink-card {
+    display: block;
+    width: 30%;
+    height: 20em;
+    border: 1px solid gray;
+    border-radius: 2em;
+    margin: 2em;
+    background-color: var(--primary-accent);
+}
+
+.homepage-drink-card:hover {
+    box-shadow: .5em .5em 1em var(--primary);
+}
+
+.homepage-drink-imageUrl {
+    height: 3em;
+    width: 3em;
+    border-radius: 2em;
+    margin-right: 1em;
+}
+
+/*
+HomePage Store Styling------------
+*/
+
+.homepage-store-overview-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.homepage-store-card {
+    display: block;
+    width: 30%;
+    height: 20em;
+    border: 1px solid gray;
+    border-radius: 2em;
+    margin: 2em;
+    background-color: var(--primary-accent);
+}
+
+.homepage-store-card:hover {
+    box-shadow: .5em .5em 1em var(--primary);
+}
+
+.homepage-store-name {
+    text-align: center;
+}
+
+.homepage-store-description {
+    border: 1px solid black;
+    margin: 0 .5em;
+    padding: .75em;
+    background-color: var(--accent-light);
+    color: var(--accent-dark)
+}
+
+.homepage-store-location {
+    color: var(--accent-dark);
+    text-align: center;
+}
