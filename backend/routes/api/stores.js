@@ -26,5 +26,11 @@ router.get('/:storeId', asyncHandler(async (req, res) => {
     res.json({selectedStore});
 }))
 
+router.get('/loadstores', asyncHandler(async (req, res) => {
+    const data = await Store.find();
+
+    res.json({data})
+}))
+
 
 module.exports = router;
