@@ -6,3 +6,7 @@
     --accent-light: #F2E7DC;
     --accent-dark: #591902;
 }
+
+body {
+    background-color: var(--accent-light);
+}

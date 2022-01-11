@@ -5,7 +5,7 @@ function CheckinOverview({ checkin }) {
     return (
         <div className='homepage-checkin-overview-container'>
             <h2>Popular Checkins</h2>
-            {checkin?.data?.map((check) => {
+            {checkin.data?.map((check) => {
                 return (
                     <div key={check.id} className='profile-checkin-card'>
 

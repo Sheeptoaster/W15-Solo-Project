@@ -18,7 +18,7 @@ export const getStoresOverview = () => async dispatch => {
 }
 
 const initialState = {
-    stores:  {},
+    stores: {},
 }
 
 const storeReducer = (state = initialState, action) => {

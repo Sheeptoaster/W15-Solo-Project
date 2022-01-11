@@ -18,7 +18,7 @@ export const getDrinksOverview = () => async dispatch => {
 }
 
 const initialState = {
-    drinks:  {},
+    drinks: {},
 }
 
 
