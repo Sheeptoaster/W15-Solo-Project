@@ -18,8 +18,6 @@ function SplashPage() {
     const drinks = useSelector(state => state.drinks.drinks.data);
     const stores = useSelector(state => state.stores.stores.data)
 
-    console.log('DRINKS', drinks);
-    console.log('STORES', stores);
 
     useEffect(() => {
         dispatch(userActions.getCheckinOverview())

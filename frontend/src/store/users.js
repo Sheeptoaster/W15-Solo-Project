@@ -52,18 +52,19 @@ export const getCheckinOverview = () => async dispatch => {
 const initialState = {
     user: {},
     checkins: {},
-    drinks: {},
-    stores: {},
 }
 
 const userReducer = (state = initialState, action) => {
+    let newState;
     switch (action.type) {
         case LOAD_USER: {
             return { ...state, user: action.payload };
         };
 
         case LOAD_USER_CHECKIN: {
-            return { ...state, checkins: action.payload }
+            newState = {...state }
+            newState.checkins.currentUser = action.payload
+            return newState;
         };
 
         case LOAD_CHECKIN_OVERVIEW: {

@@ -14,7 +14,6 @@ function LoginForm({setShowModal}) {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
-    console.log(LoginFormModal);
 
     const history = useHistory()
 

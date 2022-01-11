@@ -10,7 +10,8 @@ function ProfileCheckin({ user, checkin }) {
                 {user.username} Checkins
             </h2>
             <div className="profile-checkin-container">
-                {checkin.data?.map((check) => {
+                {checkin?.map((check) => {
+                    {console.log('MAP CHECK', check)}
                     return (
                         <div key={check.id} className="profile-checkin-card">
 

@@ -21,7 +21,6 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:checkinId', asyncHandler(async (req, res) => {
     const checkinId = req.params.checkinId;
-    console.log(checkinId);
     const data = await Checkin.findByPk(checkinId)
     res.json({data});
 }))

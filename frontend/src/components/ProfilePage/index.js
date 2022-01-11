@@ -11,7 +11,7 @@ function ProfilePage() {
 
     const { id } = useParams();
     const user = useSelector(state => state.users.user);
-    const checkin = useSelector(state => state.users.checkins);
+    const checkin = useSelector(state => state.users.checkins.currentUser);
 
     console.log('CHECKIN', checkin);
 
