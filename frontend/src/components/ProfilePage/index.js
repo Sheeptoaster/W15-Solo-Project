@@ -1,26 +1,29 @@
 import React, { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUser } from '../../store/users';
+import * as userActions from '../../store/users';
 
+import ProfileCheckin from "./ProfileCheckin";
+import ProfileCard from "./ProfileCard";
 
-async function ProfilePage() {
+function ProfilePage() {
     const dispatch = useDispatch();
 
-    const { userId } = useParams();
-    const user = useSelector(state => {
-        return state.user.map(userId => state.user[userId])
-    });
+    const { id } = useParams();
+    const user = useSelector(state => state.users.user);
+    const checkin = useSelector(state => state.users.checkins);
+
 
     useEffect(() => {
-        dispatch(getUser(userId))
+        dispatch(userActions.getUser(id))
+        dispatch(userActions.getUserCheckins(id))
     }, [dispatch])
 
-
     return (
-        <div>
-            <p>{user.username}</p>
-        </div>
+        <>
+            <ProfileCard user={user} />
+            <ProfileCheckin user={user} checkin={checkin} />
+        </>
     )
 }
 

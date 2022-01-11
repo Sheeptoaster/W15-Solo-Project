@@ -5,13 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import * as sessionActions from "../../store/session";
+import * as userActions from '../../store/session';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
     const dispatch = useDispatch()
-    
+
     async function demoUser(e) {
         e.preventDefault()
         return dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' })

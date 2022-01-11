@@ -1,43 +1,52 @@
 
-const LOAD_USER = 'users/LOAD_USER';
+const LOAD_USER = 'users/loadUser';
 
-const LOAD_USER_CHECKIN = 'users/LOAD_USER_CHECKIN';
+const LOAD_USER_CHECKIN = 'users/loadUserCheckin';
 
-const loadUser = user => ({
-    type: LOAD_USER,
-    user,
-})
+const loadUser = user => {
+    return {
+        type: LOAD_USER,
+        payload: user,
+    }
+}
+
+const loadUserCheckin = user => {
+    return {
+        type: LOAD_USER_CHECKIN,
+        payload: user,
+    }
+}
+
 
 
 export const getUser = (id) => async dispatch => {
     const res = await fetch(`/api/users/${id}`);
     if (res.ok) {
         const user = await res.json();
-        dispatch(loadUser(user))
+        dispatch(loadUser(user.currentUser))
+    }
+}
+
+export const getUserCheckins = (id) => async dispatch => {
+    const res = await fetch(`/api/users/${id}/checkins`);
+    if (res.ok) {
+        const userCheckins = await res.json();
+        dispatch(loadUserCheckin(userCheckins.userDetails))
     }
 }
 
 
-const userReducer = (state = {}, action) => {
+
+const userReducer = (state = { user: null, checkins: null }, action) => {
     switch (action.type) {
         case LOAD_USER: {
-            if (!state[action.user.id]) {
-                const newState = {
-                    ...state,
-                    [action.user.id]: action.user
-                };
-                const userList = newState.list.map(id => newState[id]);
-                userList.push(action.user);
-                return newState;
-            }
-            return {
-                ...state,
-                [action.user.id]: {
-                    ...state[action.user.id],
-                    ...action.user,
-                }
-            };
-        }
+            return { ...state, user: action.payload };
+        };
+
+        case LOAD_USER_CHECKIN: {
+            return { ...state, checkins: action.payload }
+        };
+
         default:
             return state;
     }
