@@ -39,16 +39,13 @@ const initialState = {
 }
 
 const storeReducer = (state = initialState, action) => {
-    let newState;
     switch(action.type) {
         case LOAD_STORES_OVERVIEW: {
             return { ...state, stores: action.payload };
         }
 
         case LOAD_ALL_STORES: {
-            newState = { ...state }
-            newState.stores.allStores = action.payload;
-            return newState;
+            return { ...state, stores: action.payload };
         }
 
         default:

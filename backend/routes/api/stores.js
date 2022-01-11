@@ -18,6 +18,13 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json({data});
 }))
 
+
+router.get('/loadstores', asyncHandler(async (req, res) => {
+    const data = await Store.findAll();
+
+    res.json({data})
+}))
+
 router.get('/:storeId', asyncHandler(async (req, res) => {
     const storeId = req.params.storeId;
 
@@ -26,11 +33,6 @@ router.get('/:storeId', asyncHandler(async (req, res) => {
     res.json({selectedStore});
 }))
 
-router.get('/loadstores', asyncHandler(async (req, res) => {
-    const data = await Store.find();
-
-    res.json({data})
-}))
 
 
 module.exports = router;
