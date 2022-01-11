@@ -13,16 +13,17 @@ function ProfilePage() {
     const user = useSelector(state => state.users.user);
     const checkin = useSelector(state => state.users.checkins);
 
+    console.log('CHECKIN', checkin);
 
     useEffect(() => {
         dispatch(userActions.getUser(id))
         dispatch(userActions.getUserCheckins(id))
-    }, [dispatch])
+    }, [id, dispatch])
 
     return (
         <>
             <ProfileCard user={user} />
-            <ProfileCheckin user={user} checkin={checkin} />
+            <ProfileCheckin checkin={checkin} user={user} />
         </>
     )
 }

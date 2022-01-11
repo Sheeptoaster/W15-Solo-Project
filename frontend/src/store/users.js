@@ -1,7 +1,8 @@
 
 const LOAD_USER = 'users/loadUser';
-
 const LOAD_USER_CHECKIN = 'users/loadUserCheckin';
+const LOAD_CHECKIN_OVERVIEW = 'users/loadCheckinOverview';
+
 
 const loadUser = user => {
     return {
@@ -17,7 +18,12 @@ const loadUserCheckin = user => {
     }
 }
 
-
+const loadCheckinOverview = checkin => {
+    return {
+        type: LOAD_CHECKIN_OVERVIEW,
+        payload: checkin
+    }
+}
 
 export const getUser = (id) => async dispatch => {
     const res = await fetch(`/api/users/${id}`);
@@ -35,9 +41,20 @@ export const getUserCheckins = (id) => async dispatch => {
     }
 }
 
+export const getCheckinOverview = () => async dispatch => {
+    const res = await fetch('/api/checkins/');
+    if(res.ok) {
+        const checkinOverview = await res.json();
+        dispatch(loadCheckinOverview(checkinOverview))
+    }
+}
 
+const initialState = {
+    user: {},
+    checkins: {},
+}
 
-const userReducer = (state = { user: null, checkins: null }, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_USER: {
             return { ...state, user: action.payload };
@@ -46,6 +63,10 @@ const userReducer = (state = { user: null, checkins: null }, action) => {
         case LOAD_USER_CHECKIN: {
             return { ...state, checkins: action.payload }
         };
+
+        case LOAD_CHECKIN_OVERVIEW: {
+            return { ...state, checkins: action.payload }
+        }
 
         default:
             return state;

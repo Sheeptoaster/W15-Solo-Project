@@ -21,18 +21,24 @@ function App() {
       {isLoaded && (
         <Switch>
 
+          <Route exact path={'/'}>
+            <SplashPage />
+          </Route>
+
           <Route path="/signup">
             <SignupFormPage />
           </Route>
 
-        <Route path="/users/:id">
-          <ProfilePage />
-        </Route>
+          <Route path="/users/:id">
+            <ProfilePage />
+          </Route>
+
 
         </Switch>
+
+
       )}
 
-      <SplashPage />
 
     </>
   );
