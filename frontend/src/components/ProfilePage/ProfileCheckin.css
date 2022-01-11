@@ -1,0 +1,50 @@
+.username-checkin-title {
+    display: flex;
+    margin: auto 20%;
+    margin-top: 4%;
+    font-size: x-large;
+    font-weight: bolder;
+    color: var(--primary)
+}
+
+
+.profile-checkin-container {
+    margin-left: 10%;
+}
+
+.profile-checkin-card {
+    display: block;
+    width: 30%;
+    height: 20em;
+    border: 1px solid gray;
+    border-radius: 2em;
+    margin: 2em;
+
+}
+
+
+.checkin-user-info-container {
+    display: flex;
+}
+
+.checkin-user-username {
+    align-self: center;
+}
+
+.checkin-info-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.checkin-user-avatar {
+    width: 5em;
+    height: 5em;
+    border-radius: 3em;
+    align-self: center;
+    margin: 2em;
+}
+
+
+.checkin-user-comment {
+    text-align: center;
+}

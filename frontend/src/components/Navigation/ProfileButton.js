@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
+
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
@@ -42,7 +43,7 @@ function ProfileButton({ user }) {
             {showMenu && (
                 <ul className="profile-dropdown">
                     <li>
-                        <NavLink to={`/profiles/${user.id}`}>
+                        <NavLink to={`/users/${user.id}`}>
                             {user.username} Profile
                         </NavLink>
                     </li>

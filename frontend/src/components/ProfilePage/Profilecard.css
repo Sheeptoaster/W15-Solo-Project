@@ -1,0 +1,35 @@
+
+
+.profile-user-card {
+    display: grid;
+    grid-template-areas:
+    "Image Username"
+    "Image Bio";
+    width: 30%;
+    border: 1px solid gray;
+    border-radius: 1em;
+    float: right;
+    margin-top: 5em;
+    margin-right: 3em;
+}
+
+
+.profile-user-avatar {
+    width: 5em;
+    height: 5em;
+    border-radius: 3em;
+    grid-area: Image;
+    align-self: center;
+    margin: 2em;
+}
+
+
+
+.profile-user-username {
+    grid-area: Username;
+}
+
+.profile-user-bio {
+    grid-area: Bio;
+    margin-right: 2em;
+}
