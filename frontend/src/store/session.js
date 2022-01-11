@@ -27,7 +27,6 @@ export const login = (user) => async (dispatch) => {
         }),
     });
     const data = await res.json();
-    console.log('SESSION DATA', data.user);
     dispatch(setUser(data.user));
     return res;
 }
@@ -63,7 +62,9 @@ export const logout = () => async (dispatch) => {
     return response;
 };
 
-const initialState = { user: null }
+const initialState = {
+    user: {},
+}
 
 const sessionReducer = (state = initialState, action) => {
     let newState;

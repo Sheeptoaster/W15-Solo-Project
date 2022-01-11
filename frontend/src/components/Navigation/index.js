@@ -26,7 +26,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div>
-                    <NavLink to='#'>Filler 2 Logged In</NavLink>
+                    <NavLink to='/drinks'>Drinks</NavLink><i className="fas fa-beer"></i>
                 </div>
                 <ProfileButton user={sessionUser} />
             </>
@@ -55,7 +55,7 @@ function Navigation({ isLoaded }) {
                     <NavLink exact to="/">Home</NavLink><i className="fas fa-home"></i>
                 </div>
                 <div>
-                    <NavLink exact to="#">Filler</NavLink><i className="fas fa-home"></i>
+                    <NavLink exact to="/bars">Bars</NavLink><i className="fas fa-store"></i>
                 </div>
                 {isLoaded && sessionLinks}
                 <span className='nav-line'></span>
