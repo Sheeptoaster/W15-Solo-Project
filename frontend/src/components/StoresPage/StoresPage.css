@@ -1,0 +1,31 @@
+.store-details-container {
+    border: 1px solid black;
+    margin: 3em;
+    padding: 5em;
+    background-color: var(--primary-accent);
+    border-radius: 2em;
+}
+
+.store-details-container:hover {
+    box-shadow: .5em .5em 1em var(--primary);
+}
+
+.store-details-header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.storepage-navlink-store-details {
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bolder;
+    color: var(--accent-dark)
+}
+
+.store-description {
+    border: 1px solid black;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: var(--accent-light);
+}
