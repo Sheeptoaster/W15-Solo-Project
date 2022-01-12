@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
+import { Modal } from "../../context/Modal";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as drinkActions from '../../store/drinks'
+
+
 
 import './DrinksPage.css'
 
@@ -27,6 +30,8 @@ function DrinksPage() {
                             </div>
 
                             <h4 className="drinkpage-drink-description">{drink.description}</h4>
+
+                            <button className="drinkpage-delete-drink">Delete Drink</button>
                         </div>
                     )
                 })}
