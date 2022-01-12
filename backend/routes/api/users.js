@@ -43,6 +43,7 @@ router.post('/', validateSignUp, asyncHandler(async (req, res) => {
 })
 );
 
+
 router.get('/:userId', asyncHandler(async (req, res) => {
     const userId = req.params.userId;
 

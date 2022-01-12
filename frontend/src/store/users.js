@@ -33,6 +33,7 @@ export const getUser = (id) => async dispatch => {
     }
 }
 
+
 export const getUserCheckins = (id) => async dispatch => {
     const res = await fetch(`/api/users/${id}/checkins`);
     if (res.ok) {

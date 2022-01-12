@@ -1,17 +1,22 @@
 // frontend/src/components/Navigation/index.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import * as sessionActions from "../../store/session";
-import * as userActions from '../../store/session';
+import * as userActions from '../../store/users';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
+    const currentUser = useSelector(state => state.users)
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(userActions.getUser(sessionUser.id));
+    }, [dispatch])
 
     async function demoUser(e) {
         e.preventDefault()
@@ -28,7 +33,7 @@ function Navigation({ isLoaded }) {
                 <div>
                     <NavLink to='/drinks'>Drinks</NavLink><i className="fas fa-beer"></i>
                 </div>
-                <ProfileButton user={sessionUser} />
+                <ProfileButton user={currentUser.user} />
             </>
         );
     } else {
