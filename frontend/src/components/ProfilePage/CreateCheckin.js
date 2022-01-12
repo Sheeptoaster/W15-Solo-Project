@@ -1,23 +1,34 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 
 import CreateCheckinModal from "./CreateCheckinModal/CreateCheckinModal";
 
-function CreateCheckin({ user }) {
+import './CreateCheckin.css'
+
+function CreateCheckin({ user, sessionUser }) {
     const [showModal, setShowModal] = useState(false);
 
-    return (
-        <>
-            <button onClick={() => setShowModal(true)}>Checkin Here</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <CreateCheckinModal setShowModal={setShowModal} user={user} />
-                </Modal>
-            )}
-        </>
-    )
+    if (user.id === sessionUser?.id) {
+        return (
+            <div className="btn-create-checkin">
+                <button className="create-checkin-button"
+                    onClick={() => setShowModal(true)}>
+                    Checkin Here
+                </button>
+
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <CreateCheckinModal setShowModal={setShowModal} user={user} />
+                    </Modal>
+                )}
+            </div>
+        )
+    } else {
+        return (
+            <>
+            </>
+        )
+    }
 }
 
 export default CreateCheckin;

@@ -1,0 +1,22 @@
+.create-checkin-button {
+    position: relative;
+    top: 20em;
+    left: 15em;
+    float: right;
+
+    width: 15em;
+    height: 8em;
+
+    border-radius: 2em;
+
+    background-color: var(--primary-accent);
+
+    font-size: larger;
+    color: var(--primary);
+}
+
+.create-checkin-button:hover {
+    color: var(--primary-dark);
+    font-weight: bolder;
+    box-shadow: .35em .35em .75em var(--primary);
+}
