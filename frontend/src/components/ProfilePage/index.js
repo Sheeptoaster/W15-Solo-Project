@@ -13,7 +13,6 @@ function ProfilePage() {
     const user = useSelector(state => state.users.user);
     const checkin = useSelector(state => state.users.checkins.currentUser);
 
-    console.log('CHECKIN', checkin);
 
     useEffect(() => {
         dispatch(userActions.getUser(id))

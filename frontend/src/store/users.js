@@ -26,7 +26,7 @@ const loadCheckinOverview = checkin => {
 }
 
 export const getUser = id => async dispatch => {
-    const res = await fetch(`/api/users/${id}`);
+    const res = await fetch(`/api/users/${id}/`);
     if (res.ok) {
         const user = await res.json();
         dispatch(loadUser(user.currentUser))

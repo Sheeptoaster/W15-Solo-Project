@@ -10,15 +10,8 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-    const currentUser = useSelector(state => state.users.user)
 
-    const dispatch = useDispatch()
-
-    const id = sessionUser.id
-
-    useEffect(() => {
-        dispatch(userActions.getUser(id));
-    }, [id, dispatch])
+    const dispatch = useDispatch();
 
     async function demoUser(e) {
         e.preventDefault()
@@ -35,7 +28,7 @@ function Navigation({ isLoaded }) {
                 <div>
                     <NavLink to='/drinks'>Drinks</NavLink><i className="fas fa-beer"></i>
                 </div>
-                <ProfileButton user={sessionUser} currentUser={currentUser} />
+                <ProfileButton user={sessionUser} />
             </>
         );
     } else {

@@ -10,8 +10,6 @@ function StoresPage() {
 
     const stores = useSelector(state => state.stores.stores);
 
-    console.log('STORES', stores);
-
     useEffect(() => {
         dispatch(storeActions.getStores())
     }, [dispatch])

@@ -3,7 +3,6 @@ import React from "react";
 import './ProfileCheckin.css'
 
 function ProfileCheckin({ user, checkin }) {
-    console.log('PROFILECHECKIN', checkin);
     return (
         <>
             <h2 className="username-checkin-title">
@@ -11,7 +10,6 @@ function ProfileCheckin({ user, checkin }) {
             </h2>
             <div className="profile-checkin-container">
                 {checkin?.map((check) => {
-                    {console.log('MAP CHECK', check)}
                     return (
                         <div key={check.id} className="profile-checkin-card">
 

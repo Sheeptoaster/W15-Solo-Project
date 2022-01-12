@@ -10,8 +10,6 @@ function DrinksPage() {
 
     const drinks = useSelector(state => state.drinks.drinks)
 
-    console.log('DRINK DETAILS', drinks);
-
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
     }, [dispatch])

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 
 
-function ProfileButton({ user, currentUser }) {
+function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
 
@@ -35,7 +35,7 @@ function ProfileButton({ user, currentUser }) {
         <>
             <button onClick={openMenu}>
                 <img
-                    src={currentUser?.avatarUrl}
+                    src={user?.avatarUrl}
                     height={'50px'}
                     width={'60px'}
                 ></img>
