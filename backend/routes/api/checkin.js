@@ -19,10 +19,38 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 
+
+router.post('/create', asyncHandler(async (req, res) => {
+    console.log('REQ', req.body);
+    const { userId, drinks, location, comment } = req.body;
+
+    const drinkId = await Drink.findOne({
+        where: {
+            name: drinks
+        }
+    })
+
+    const storeId = await Store.findOne({
+        where: {
+            name: location
+        }
+    })
+
+    const checkin = await Checkin.create({
+        userId,
+        drinkId: drinkId.id,
+        storeId: storeId.id,
+        comment
+    })
+
+    res.json(checkin)
+}))
+
 router.get('/:checkinId', asyncHandler(async (req, res) => {
     const checkinId = req.params.checkinId;
     const data = await Checkin.findByPk(checkinId)
     res.json({data});
 }))
+
 
 module.exports = router;

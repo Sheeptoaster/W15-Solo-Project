@@ -1,7 +1,9 @@
+import Cookies from "js-cookie";
 
 const LOAD_USER = 'users/loadUser';
 const LOAD_USER_CHECKIN = 'users/loadUserCheckin';
 const LOAD_CHECKIN_OVERVIEW = 'users/loadCheckinOverview';
+const ADD_CHECKIN = 'users/addCheckin';
 
 
 const loadUser = user => {
@@ -21,6 +23,13 @@ const loadUserCheckin = user => {
 const loadCheckinOverview = checkin => {
     return {
         type: LOAD_CHECKIN_OVERVIEW,
+        payload: checkin
+    }
+}
+
+const addCheckin = checkin => {
+    return {
+        type: ADD_CHECKIN,
         payload: checkin
     }
 }
@@ -50,6 +59,28 @@ export const getCheckinOverview = () => async dispatch => {
     }
 }
 
+export const addUserCheckin = (data) => async dispatch => {
+    const { user, drinks, location, comment } = data;
+
+    const XSRF = Cookies.get('XSRF-TOKEN');
+
+    const res = await fetch('/api/checkins/create', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            userId: user.id,
+            drinks,
+            location,
+            comment,
+        }),
+    });
+    const newData = await res.json()
+    dispatch(addCheckin(newData))
+    return newData;
+}
+
 const initialState = {
     user: {},
     checkins: {},
@@ -69,6 +100,10 @@ const userReducer = (state = initialState, action) => {
         };
 
         case LOAD_CHECKIN_OVERVIEW: {
+            return { ...state, checkins: action.payload }
+        }
+
+        case ADD_CHECKIN: {
             return { ...state, checkins: action.payload }
         }
 

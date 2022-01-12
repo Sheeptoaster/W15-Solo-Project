@@ -5,6 +5,7 @@ import * as userActions from '../../store/users';
 
 import ProfileCheckin from "./ProfileCheckin";
 import ProfileCard from "./ProfileCard";
+import CreateCheckin from "./CreateCheckin";
 
 function ProfilePage() {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function ProfilePage() {
     return (
         <>
             <ProfileCard user={user} />
+            <CreateCheckin user={user} />
             <ProfileCheckin checkin={checkin} user={user} />
         </>
     )

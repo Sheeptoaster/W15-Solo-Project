@@ -55,7 +55,7 @@ function LoginForm({setShowModal}) {
                     </label>
                     <input
                         type="text"
-                        className="login-username-label"
+                        className="login-username-input"
                         value={credential}
                         onChange={(e) => setCredential(e.target.value)}
                         required
