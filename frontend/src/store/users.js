@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+import { csrfFetch } from "./csrf";
 
 const LOAD_USER = 'users/loadUser';
 const LOAD_USER_CHECKIN = 'users/loadUserCheckin';
@@ -60,18 +60,13 @@ export const getCheckinOverview = () => async dispatch => {
 }
 
 export const addUserCheckin = (data) => async dispatch => {
-    const { user, drinks, location, comment } = data;
+    const { user, drink, location, comment } = data;
 
-    const XSRF = Cookies.get('XSRF-TOKEN');
-
-    const res = await fetch('/api/checkins/create', {
+    const res = await csrfFetch('/api/checkins/create', {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
         body: JSON.stringify({
             userId: user.id,
-            drinks,
+            drink,
             location,
             comment,
         }),

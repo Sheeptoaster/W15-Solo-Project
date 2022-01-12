@@ -21,12 +21,11 @@ router.get('/', asyncHandler(async (req, res) => {
 
 
 router.post('/create', asyncHandler(async (req, res) => {
-    console.log('REQ', req.body);
-    const { userId, drinks, location, comment } = req.body;
+    const { userId, drink, location, comment } = req.body;
 
     const drinkId = await Drink.findOne({
         where: {
-            name: drinks
+            name: drink
         }
     })
 

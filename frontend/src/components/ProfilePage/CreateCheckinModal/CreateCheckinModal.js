@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import * as userActions from '../../../store/users'
 
@@ -14,16 +14,18 @@ function CreateCheckinModal({ setShowModal, user }) {
     const [location, setLocation] = useState("");
     const [comment, setComment] = useState("");
 
-
+    const { id } = useParams()
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(userActions.addUserCheckin({user, drink, location, comment}))
+        dispatch(userActions.getUserCheckins(id))
         return setShowModal(false);
     }
     const handleCancel = (e) => {
         e.preventDefault()
+        return setShowModal(false);
     }
 
 
