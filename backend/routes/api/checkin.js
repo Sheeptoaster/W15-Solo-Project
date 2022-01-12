@@ -15,7 +15,7 @@ router.get('/', asyncHandler(async (req, res) => {
         ],
         limit: 3,
     })
-    res.json({data});
+    res.json({ data });
 }))
 
 
@@ -48,7 +48,50 @@ router.post('/create', asyncHandler(async (req, res) => {
 router.get('/:checkinId', asyncHandler(async (req, res) => {
     const checkinId = req.params.checkinId;
     const data = await Checkin.findByPk(checkinId)
-    res.json({data});
+    res.json({ data });
+}))
+
+router.put('/:checkinId/edit', asyncHandler(async (req, res) => {
+    const checkinId = req.params.checkinId;
+
+    const { drink, location, comment } = req.body;
+
+    const drinkId = await Drink.findOne({
+        where: {
+            name: drink
+        }
+    })
+
+    const locationId = await Store.findOne({
+        where: {
+            name: location
+        }
+    })
+
+    const selectedCheckin = await Checkin.findByPk(checkinId)
+
+    const updatedCheckin = await selectedCheckin.set({
+        drinkId: drinkId.id,
+        storeId: locationId.id,
+        comment,
+    })
+
+    if (updatedCheckin) {
+        const data = await updatedCheckin.save();
+
+        return res.json(data)
+    }
+}))
+
+router.delete('/:checkinId/delete', asyncHandler(async (req, res) => {
+    const checkinId = req.params.checkinId;
+
+    console.log(checkinId);
+
+    const deleteCheckin = await Checkin.findByPk(checkinId);
+
+    await deleteCheckin.destroy();
+    return res.json();
 }))
 
 
