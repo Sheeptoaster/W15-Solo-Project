@@ -39,13 +39,16 @@ const initialState = {
 
 
 const drinkReducer = (state = initialState, action) => {
+    let newState;
     switch (action.type) {
         case LOAD_DRINKS_OVERVIEW: {
             return { ...state, drinks: action.payload };
         }
 
         case LOAD_ALL_DRINKS: {
-            return { ...state, drinks: action.payload };
+            newState = { ...state }
+            newState.drinks.drinks = action.payload
+            return newState;
         }
 
         default:
