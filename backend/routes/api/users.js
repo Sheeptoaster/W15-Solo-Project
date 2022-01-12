@@ -57,20 +57,18 @@ router.get('/:userId/checkins', asyncHandler(async (req, res) => {
 
     const userDetails = await Checkin.findAll({
         where: {
-            userId: userId
+            userId: +userId
         },
         include: [
             {
                 model: Drink,
-                where: {
-                    userId
-                }
             },
             {
                 model: Store,
             }
         ]
     })
+
 
     res.json({ userDetails });
 }))
