@@ -6,7 +6,7 @@ function DrinkOverview({ drinks }) {
         <>
             <h2 className="homepage-h2">Popular Drinks</h2>
             <div className='homepage-drink-overview-container'>
-                {drinks?.map((drink) => {
+                {drinks?.data?.map((drink) => {
                     return (
                         <div key={drink.id} className='homepage-drink-card'>
 

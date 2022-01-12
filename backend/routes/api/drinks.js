@@ -19,6 +19,13 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json({ data });
 }))
 
+router.get('/loaddrinks', asyncHandler(async (req, res) => {
+    const data = await Drink.findAll();
+
+    res.json({ data });
+}))
+
+
 router.get('/:drinkId', asyncHandler(async (req, res) => {
     const drinkId = req.params.drinkId;
 

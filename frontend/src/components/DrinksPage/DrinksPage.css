@@ -1,0 +1,37 @@
+.drink-details-container {
+    border: 1px solid black;
+    margin: 3em;
+    padding: 5em;
+    background-color: var(--primary-accent);
+    border-radius: 2em;
+}
+
+.drink-details-container:hover {
+    box-shadow: .5em .5em 1em var(--primary);
+}
+
+.drink-details-header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.drinkpage-drink-imageUrl {
+    height: 10em;
+    width: 11em;
+    border-radius: 5em;
+}
+
+.drinkpage-navlink-drink-details {
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bolder;
+    color: var(--accent-dark)
+}
+
+.drinkpage-drink-description {
+    border: 1px solid black;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: var(--accent-light);
+}
