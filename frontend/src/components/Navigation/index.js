@@ -39,11 +39,11 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div>
-                    <NavLink exact to="/signup">Sign Up</NavLink><i class="fas fa-user-plus"></i>
+                    <NavLink exact to="/signup">Sign Up</NavLink><i className="fas fa-user-plus"></i>
                 </div>
 
                 <div>
-                    
+
                     <div>
                         <button onClick={demoUser}>Demo User
                         </button>

@@ -17,7 +17,7 @@ function StoresPage() {
 
     return (
         <>
-            <div>
+            <div className="main-container-store-details">
                 {stores?.data?.map((store) => {
                     return (
                         <div key={store.id} className="store-details-container">

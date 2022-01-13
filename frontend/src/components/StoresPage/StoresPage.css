@@ -1,3 +1,8 @@
+.main-container-store-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .store-details-container {
     border: 1px solid black;
     margin: 3em;

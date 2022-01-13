@@ -20,7 +20,7 @@ function DrinksPage() {
 
     return (
         <>
-            <div>
+            <div className="main-container-drink-details">
                 {drinks?.drinks?.data?.map((drink) => {
                     return (
                         <div key={drink.id} className="drink-details-container">
