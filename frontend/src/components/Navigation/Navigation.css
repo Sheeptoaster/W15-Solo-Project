@@ -70,11 +70,48 @@
 
 .profile-dropdown {
     position: absolute;
-    background-color: var(--primary-accent);
+    background-color: var(--primary);
+    border-radius: .25em;
+    width: 23%;
     list-style-type: none;
+    text-align: center;
     font-size: larger;
-    top: 95px;
+    top: 1.35em;
     left: 75%;
+}
+
+.logout-btn {
+    display: block;
+    padding: 9px;
+    width: 150px;
+    border: 1px solid #DDDDDD;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: var(--accent-dark);
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.demo-user-btn, .login-btn {
+    display: block;
+    padding: 9px;
+    width: 150px;
+    border: 1px solid #DDDDDD;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: var(--accent-dark);
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    margin: .2em auto;
+    text-align: center;
+}
+
+.login-container {
+    display: flex;
 }
 
 
