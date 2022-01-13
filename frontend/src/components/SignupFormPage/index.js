@@ -54,7 +54,7 @@ function SignupFormPage() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                    <span>Enter Your Full Name</span>
+                    <span>Enter Your Email</span>
                 </div>
 
                 <div className="sign-up-username">

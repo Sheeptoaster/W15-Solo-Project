@@ -62,23 +62,20 @@ function CreateCheckinModal({ setShowModal, user }) {
                         <label className="create-checkin-label-drink">
                             What did you drink?
                         </label>
-                        {/* <input
-                            type='text'
+                        <select
                             className="create-checkin-input-drink"
                             value={drink}
-                            onChange={(e) => {
-                                setDrink(e.target.value)
-                            }}
+                            onChange={(e) => setDrink(e.target.value)}
                             required
-                        /> */}
-                        <select
-                        className="create-checkin-input-drink"
-                        value={drink} onChange={(e) => setLocation(e.target.value)}
-                        required
                         >
+                            <option value="" disabled>Please select a Drink</option>
                             {drinks?.drinks?.data?.map((drink) => {
                                 return (
-                                    <option key={drink.id} value={drink.name}>{drink.name}</option>
+                                    <option
+                                        key={drink.id}
+                                        value={drink.name}
+                                        onClick={(e) => setDrink(e.target.value)}
+                                    >{drink.name}</option>
                                 )
                             })}
                         </select>
@@ -88,20 +85,19 @@ function CreateCheckinModal({ setShowModal, user }) {
                         <label className="create-checkin-label-location">
                             Where are you drinking?
                         </label>
-                        {/* <input
-                            type='text'
+                        <select
                             className="create-checkin-input-location"
                             value={location}
                             onChange={(e) => setLocation(e.target.value)}
-                            required
-                        /> */}
-                        <select
-                        className="create-checkin-input-location"
-                        value={location} onChange={(e) => setLocation(e.target.value)}
-                        required>
+                            required>
+                                <option value="" disabled>Please select a Bar</option>
                             {stores?.data?.map((store) => {
                                 return (
-                                    <option key={store.id} value={store.name}>{store.name}</option>
+                                    <option
+                                        key={store.id}
+                                        value={store.name}
+                                        onClick={(e) => setLocation(e.target.value)}
+                                    >{store.name}</option>
                                 )
                             })}
                         </select>

@@ -26,6 +26,9 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div>
+                    <NavLink exact to="/bars">Bars</NavLink><i className="fas fa-store"></i>
+                </div>
+                <div>
                     <NavLink to='/drinks'>Drinks</NavLink><i className="fas fa-beer"></i>
                 </div>
                 <ProfileButton user={sessionUser} />
@@ -34,15 +37,24 @@ function Navigation({ isLoaded }) {
     } else {
         items = 3
         sessionLinks = (
-            <div>
+            <>
                 <div>
-                    <button onClick={demoUser}>Demo User
-                    </button>
+                    <NavLink exact to="/signup">Sign Up</NavLink><i class="fas fa-user-plus"></i>
                 </div>
-                <div className='login-and-signup-links' >
-                    <LoginFormModal />
+
+                <div>
+                    
+                    <div>
+                        <button onClick={demoUser}>Demo User
+                        </button>
+                    </div>
+
+                    <div className='login-and-signup-links' >
+                        <LoginFormModal />
+                    </div>
+
                 </div>
-            </div>
+            </>
         );
     }
 
@@ -53,9 +65,6 @@ function Navigation({ isLoaded }) {
             <nav className='navbar' style={{ gridTemplateColumns: `repeat(${items}, 1fr)` }}>
                 <div>
                     <NavLink exact to="/">Home</NavLink><i className="fas fa-home"></i>
-                </div>
-                <div>
-                    <NavLink exact to="/bars">Bars</NavLink><i className="fas fa-store"></i>
                 </div>
                 {isLoaded && sessionLinks}
                 <span className='nav-line'></span>
