@@ -13,12 +13,14 @@ function LoginFormModal() {
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Log In</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <LoginForm setShowModal={setShowModal} />
-                </Modal>
-            )}
+            <div className='login-container'>
+                <button className="login-btn" onClick={() => setShowModal(true)}>Log In</button>
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <LoginForm setShowModal={setShowModal} />
+                    </Modal>
+                )}
+            </div>
         </>
     );
 }

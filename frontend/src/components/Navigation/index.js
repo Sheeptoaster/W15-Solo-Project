@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
                 <div>
 
                     <div>
-                        <button onClick={demoUser}>Demo User
+                        <button className='demo-user-btn' onClick={demoUser}>Demo User
                         </button>
                     </div>
 

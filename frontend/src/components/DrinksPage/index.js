@@ -12,7 +12,6 @@ function DrinksPage() {
     const dispatch = useDispatch();
 
     const drinks = useSelector(state => state.drinks.drinks.drinks)
-    console.log('DRINKS', drinks);
 
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
