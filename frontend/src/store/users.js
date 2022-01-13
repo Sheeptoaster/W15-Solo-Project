@@ -103,7 +103,6 @@ export const deleteUserCheckin = (id) => async dispatch => {
 export const updateUserCheckin = (id, body) => async dispatch => {
     const { drink, location, comment } = body;
 
-    console.log('STORE', drink, location, comment);
     const res = await csrfFetch(`/api/checkins/${id}/edit`, {
         method: "PUT",
         body: JSON.stringify({
@@ -113,7 +112,6 @@ export const updateUserCheckin = (id, body) => async dispatch => {
         })
     });
 
-    console.log('RES', res);
     const data = await res.json();
 
     dispatch(updateCheckin(data))
@@ -155,11 +153,8 @@ const userReducer = (state = initialState, action) => {
         }
 
         case UPDATE_CHECKIN: {
-            console.log('CHECKIN UPDATE', state.checkins.currentUser);
-            console.log('CHECKIN PAYLOAD', action.payload);
             const index = state.checkins.currentUser.findIndex(checkin => checkin.id === action.payload.id)
 
-            console.log('INDEX', index);
 
             return {
                 ...state,

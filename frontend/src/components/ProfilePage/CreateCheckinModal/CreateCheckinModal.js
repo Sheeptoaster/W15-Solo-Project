@@ -22,8 +22,6 @@ function CreateCheckinModal({ setShowModal, user }) {
     const stores = useSelector(state => state.stores.stores)
     const drinks = useSelector(state => state.drinks.drinks)
 
-    console.log(drinks);
-
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
         dispatch(storeActions.getStores())

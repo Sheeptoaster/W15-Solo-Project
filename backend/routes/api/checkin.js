@@ -65,7 +65,6 @@ router.put('/:checkinId/edit', asyncHandler(async (req, res) => {
 
     const { drink, location, comment } = req.body;
 
-    console.log('ROUTE', req.body);
 
     const drinkId = await Drink.findOne({
         where: {
@@ -96,8 +95,6 @@ router.put('/:checkinId/edit', asyncHandler(async (req, res) => {
 
 router.delete('/:checkinId/delete', asyncHandler(async (req, res) => {
     const checkinId = req.params.checkinId;
-
-    console.log(checkinId);
 
     const deleteCheckin = await Checkin.findByPk(checkinId);
 

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 
 function CheckinOverview({ checkin }) {
-    console.log('OVERVIEW', checkin);
+
     return (
         <>
             <h2 className="homepage-h2">Popular Checkins</h2>
