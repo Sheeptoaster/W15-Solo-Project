@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { updateUserCheckin } from '../../../store/users';
+
+import * as drinkActions from '../../../store/drinks'
+import * as storeActions from '../../../store/stores'
 
 import './EditCheckinModal.css'
 
@@ -13,6 +16,14 @@ function EditCheckinModal({ setShowModal, checkin }) {
     const [drink, setDrink] = useState(checkin?.Drink?.name);
     const [location, setLocation] = useState(checkin?.Store?.name);
     const [comment, setComment] = useState(checkin?.comment);
+
+    const stores = useSelector(state => state.stores.stores)
+    const drinks = useSelector(state => state.drinks.drinks)
+
+    useEffect(() => {
+        dispatch(drinkActions.getDrinks())
+        dispatch(storeActions.getStores())
+    }, [dispatch])
 
     const { id } = useParams();
 
@@ -38,26 +49,33 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <label className="update-checkin-label-drink">
                             What did you drink?
                         </label>
-                        <input
-                            type='text'
-                            className="update-checkin-input-drink"
-                            value={drink}
-                            onChange={(e) => setDrink(e.target.value)}
-                            required
-                        />
+                        <select
+                        className="create-checkin-input-drink"
+                        value={drink} onChange={(e) => setLocation(e.target.value)}
+                        required
+                        >
+                            {drinks?.drinks?.data?.map((drink) => {
+                                return (
+                                    <option key={drink.id} value={drink.name}>{drink.name}</option>
+                                )
+                            })}
+                        </select>
                     </div>
 
                     <div>
                         <label className="update-checkin-label-location">
                             Where are you drinking?
                         </label>
-                        <input
-                            type='text'
-                            className="update-checkin-input-location"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                            required
-                        />
+                        <select
+                        className="create-checkin-input-location"
+                        value={location} onChange={(e) => setLocation(e.target.value)}
+                        required>
+                            {stores?.data?.map((store) => {
+                                return (
+                                    <option key={store.id} value={store.name}>{store.name}</option>
+                                )
+                            })}
+                        </select>
                     </div>
 
                     <div>
