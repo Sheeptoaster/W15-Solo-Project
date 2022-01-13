@@ -5,6 +5,7 @@ const LOAD_USER_CHECKIN = 'users/loadUserCheckin';
 const LOAD_CHECKIN_OVERVIEW = 'users/loadCheckinOverview';
 const ADD_CHECKIN = 'users/addCheckin';
 const DELETE_CHECKIN = 'users/deleteCheckin';
+const UPDATE_CHECKIN = 'users/updateCheckin';
 
 
 const loadUser = user => {
@@ -38,6 +39,13 @@ const addCheckin = checkin => {
 const deleteCheckin = checkin => {
     return {
         type: DELETE_CHECKIN,
+        payload: checkin
+    }
+}
+
+const updateCheckin = checkin => {
+    return {
+        type: UPDATE_CHECKIN,
         payload: checkin
     }
 }
@@ -92,6 +100,23 @@ export const deleteUserCheckin = (id) => async dispatch => {
     dispatch(deleteCheckin(res))
 }
 
+export const updateUserCheckin = (id, body) => async dispatch => {
+    const { drink, location, comment } = body;
+
+    console.log('STORE', drink, location, comment);
+    const res = await csrfFetch(`/api/checkins/${id}/edit`, {
+        method: "PUT",
+        body: JSON.stringify({
+            drink,
+            location,
+            comment
+        })
+    });
+    const data = await res.json();
+
+    dispatch(updateCheckin(data))
+}
+
 const initialState = {
     user: {},
     checkins: {},
@@ -122,6 +147,16 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 checkins: { ...state.checkins.filter(checkin => checkin !== action.payload )}
+            }
+        }
+
+        case UPDATE_CHECKIN: {
+            const index = state.findIndex(checkin => checkin.id === action.payload.id)
+            const updatedCheckin = { ...action.payload, checkins: state[index].checkins }
+            return {
+                ...state.slice(0, index),
+                updatedCheckin,
+                ...state.slice(index + 1)
             }
         }
 

@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 
 import * as userActions from '../../../store/users'
-import * as drinkActions from '../../../store/drinks'
-import * as storeActions from '../../../store/stores';
 
 import './CreateCheckinModal.css'
 
@@ -17,35 +15,22 @@ function CreateCheckinModal({ setShowModal, user }) {
     const [comment, setComment] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const [data, setData] = useState([]);
-
     const { id } = useParams()
 
-    const drinks = useSelector(state => state.drinks)
-    const stores = useSelector(state => state.stores)
-
-    console.log(drinks, stores);
-
     useEffect(() => {
-        dispatch(drinkActions.getDrinks())
+        dispatch(userActions.getUserCheckins(id))
         document.title = 'Checkin';
-    }, [])
+    }, [dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([])
 
-
-        dispatch(drinkActions.getDrinks())
-        dispatch(storeActions.getStores())
         dispatch(userActions.getUserCheckins(id))
 
         dispatch(userActions.addUserCheckin({ user, drink, location, comment }))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-                else setShowModal(false);
-            })
+
+        return setShowModal(false)
     }
     const handleCancel = (e) => {
         e.preventDefault()

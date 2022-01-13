@@ -63,7 +63,9 @@ router.get('/:checkinId', asyncHandler(async (req, res) => {
 router.put('/:checkinId/edit', asyncHandler(async (req, res) => {
     const checkinId = req.params.checkinId;
 
-    const { drink, location, comment } = req.body;
+    const { drink, Location, comment } = req.body;
+
+    console.log('ROUTE', req.body);
 
     const drinkId = await Drink.findOne({
         where: {
@@ -73,7 +75,7 @@ router.put('/:checkinId/edit', asyncHandler(async (req, res) => {
 
     const locationId = await Store.findOne({
         where: {
-            name: location
+            name: Location
         }
     })
 

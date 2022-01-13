@@ -20,7 +20,6 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
 
-
 //Security Middleware
 
 //Only uses CORS in Development

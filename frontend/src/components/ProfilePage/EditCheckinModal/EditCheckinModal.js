@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { updateUserCheckin } from '../../../store/users';
 
 import './EditCheckinModal.css'
 
 function EditCheckinModal({ setShowModal, checkin }) {
 
-    console.log('EDIT MODAL', checkin);
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [drink, setDrink] = useState("");
-    const [location, setLocation] = useState("");
-    const [comment, setComment] = useState("");
+    const [drink, setDrink] = useState(checkin?.Drink?.name);
+    const [location, setLocation] = useState(checkin?.Store?.name);
+    const [comment, setComment] = useState(checkin?.comment);
 
     const { id } = useParams();
 
-    console.log('EDIT', checkin);
-
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        dispatch(updateUserCheckin(checkin.id, { drink, location, comment }))
         return setShowModal(false)
     }
 
@@ -43,7 +41,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <input
                             type='text'
                             className="update-checkin-input-drink"
-                            value={checkin.Drink?.name}
+                            value={drink}
                             onChange={(e) => setDrink(e.target.value)}
                             required
                         />
@@ -56,7 +54,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <input
                             type='text'
                             className="update-checkin-input-location"
-                            value={checkin.Store?.name}
+                            value={location}
                             onChange={(e) => setLocation(e.target.value)}
                             required
                         />
@@ -69,7 +67,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <input
                             type='textarea'
                             className="update-checkin-input-comment"
-                            value={checkin.comment}
+                            value={comment}
                             onChange={(e) => setComment(e.target.value)}
                             required
                         />

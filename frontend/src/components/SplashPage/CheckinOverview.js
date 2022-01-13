@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 
 
 function CheckinOverview({ checkin }) {
+    console.log('OVERVIEW', checkin);
     return (
         <>
             <h2 className="homepage-h2">Popular Checkins</h2>
@@ -12,8 +13,8 @@ function CheckinOverview({ checkin }) {
                         <div key={check.id} className='profile-checkin-card'>
 
                             <div className="checkin-user-info-container">
-                                <img src={check?.User.avatarUrl} className="checkin-user-avatar"></img>
-                                <h3 className="checkin-user-username"><NavLink style={{ textDecoration: 'none' }} to={`/users/${check?.User.id}`}>{check?.User.username}</NavLink></h3>
+                                <img src={check?.User?.avatarUrl} className="checkin-user-avatar"></img>
+                                <h3 className="checkin-user-username"><NavLink style={{ textDecoration: 'none' }} to={`/users/${check?.User?.id}`}>{check?.User?.username}</NavLink></h3>
                             </div>
 
                             <div className="checkin-info-container">

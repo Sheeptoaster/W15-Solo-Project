@@ -13,6 +13,8 @@ function DrinksPage() {
 
     const drinks = useSelector(state => state.drinks.drinks)
 
+    console.log('DRINKS', drinks);
+
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
         document.title = 'Drinks'
@@ -21,18 +23,16 @@ function DrinksPage() {
     return (
         <>
             <div>
-                {drinks?.data?.map((drink) => {
+                {drinks?.drinks?.data?.map((drink) => {
                     return (
                         <div key={drink.id} className="drink-details-container">
 
                             <div className="drink-details-header">
-                                <NavLink to={`/drinks/${drink.id}`} className='drinkpage-navlink-drink-details'>{drink.name}</NavLink>
-                                <img src={drink.imageUrl} className="drinkpage-drink-imageUrl"></img>
+                                <span className='drinkpage-navlink-drink-details'>{drink?.name}</span>
+                                <img src={drink?.imageUrl} className="drinkpage-drink-imageUrl"></img>
                             </div>
 
-                            <h4 className="drinkpage-drink-description">{drink.description}</h4>
-
-                            <button className="drinkpage-delete-drink">Delete Drink</button>
+                            <h4 className="drinkpage-drink-description">{drink?.description}</h4>
                         </div>
                     )
                 })}
