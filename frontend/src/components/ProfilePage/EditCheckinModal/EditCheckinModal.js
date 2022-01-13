@@ -5,13 +5,15 @@ import { updateUserCheckin } from '../../../store/users';
 
 import * as drinkActions from '../../../store/drinks'
 import * as storeActions from '../../../store/stores'
+import * as userActions from '../../../store/users'
 
 import './EditCheckinModal.css'
 
 function EditCheckinModal({ setShowModal, checkin }) {
 
     const dispatch = useDispatch();
-    const history = useHistory();
+
+    const { id } = useParams();
 
     const [drink, setDrink] = useState(checkin?.Drink?.name);
     const [location, setLocation] = useState(checkin?.Store?.name);
@@ -20,12 +22,12 @@ function EditCheckinModal({ setShowModal, checkin }) {
     const stores = useSelector(state => state.stores.stores)
     const drinks = useSelector(state => state.drinks.drinks)
 
+
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
         dispatch(storeActions.getStores())
+        dispatch(userActions.getUserCheckins(id))
     }, [dispatch])
-
-    const { id } = useParams();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -51,7 +53,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         </label>
                         <select
                         className="create-checkin-input-drink"
-                        value={drink} onChange={(e) => setLocation(e.target.value)}
+                        value={drink} onChange={(e) => setDrink(e.target.value)}
                         required
                         >
                             {drinks?.drinks?.data?.map((drink) => {
