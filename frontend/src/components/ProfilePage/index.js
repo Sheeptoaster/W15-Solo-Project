@@ -18,13 +18,16 @@ function ProfilePage() {
     const checkin = useSelector(state => state.users.checkins.currentUser);
     const sessionUser = useSelector(state => state.session.user)
 
-    const updateCheckin = useSelector(state => state.users.checkins)
+    const deleteCheckins = useSelector(state => state.users.checkins)
+    const updateCheckins = useSelector(state => state.users.checkins)
+
 
     useEffect(() => {
         dispatch(userActions.getUser(id))
-        dispatch(userActions.getUserCheckins(+id))
+        dispatch(userActions.getUserCheckins(id))
         document.title = "Profile Page"
-    }, [dispatch, updateCheckin])
+    }, [dispatch, deleteCheckins, updateCheckins])
+
 
     return (
         <div>
