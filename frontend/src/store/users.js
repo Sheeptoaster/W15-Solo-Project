@@ -112,9 +112,13 @@ export const updateUserCheckin = (id, body) => async dispatch => {
             comment
         })
     });
+
+    console.log('RES', res);
     const data = await res.json();
 
     dispatch(updateCheckin(data))
+
+    return data;
 }
 
 const initialState = {
@@ -151,7 +155,7 @@ const userReducer = (state = initialState, action) => {
         }
 
         case UPDATE_CHECKIN: {
-            const index = state.findIndex(checkin => checkin.id === action.payload.id)
+            const index = state.checkins.findIndex(checkin => checkin.id === action.payload.id)
             const updatedCheckin = { ...action.payload, checkins: state[index].checkins }
             return {
                 ...state.slice(0, index),
