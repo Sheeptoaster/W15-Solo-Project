@@ -28,9 +28,7 @@ if (!isProduction) {
 }
 
 //Helmet helps set headers for better security
-app.use(helmet({
-    contentSecurityPolicy: false
-}));
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 app.use(
     csurf({
@@ -60,7 +58,7 @@ app.use((_req, _res, next) => {
 
 //Sequelize Validation Errors
 app.use((err, _req, _res, next) => {
-    if(err instanceof ValidationError) {
+    if (err instanceof ValidationError) {
         err.errors = err.errors.map((e) => e.message);
         err.title = "Validation Error";
     }
