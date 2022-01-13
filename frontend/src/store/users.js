@@ -77,7 +77,6 @@ export const getCheckinOverview = () => async dispatch => {
 
 export const addUserCheckin = (data) => async dispatch => {
     const { user, drink, location, comment } = data;
-    console.log('POST', data);
     const res = await csrfFetch('/api/checkins/create', {
         method: "POST",
         body: JSON.stringify({
