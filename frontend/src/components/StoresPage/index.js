@@ -12,6 +12,7 @@ function StoresPage() {
 
     useEffect(() => {
         dispatch(storeActions.getStores())
+        document.title = 'Bars'
     }, [dispatch])
 
     return (

@@ -25,6 +25,19 @@ router.get('/loaddrinks', asyncHandler(async (req, res) => {
     res.json({ data });
 }))
 
+router.get('/search/:searchId', asyncHandler(async (req, res) => {
+    const searchKey = req.params.searchId;
+
+    const data = await Drink.findAll({
+        where: {
+            name: {
+                [Op.like]: searchKey
+            }
+        }
+    })
+
+    res.json({data})
+}))
 
 router.get('/:drinkId', asyncHandler(async (req, res) => {
     const drinkId = req.params.drinkId;

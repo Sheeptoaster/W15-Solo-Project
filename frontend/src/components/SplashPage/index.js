@@ -23,6 +23,7 @@ function SplashPage() {
         dispatch(userActions.getCheckinOverview())
         dispatch(drinkActions.getDrinksOverview())
         dispatch(storeActions.getStoresOverview())
+        document.title = 'Home'
     }, [dispatch])
 
     return (

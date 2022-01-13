@@ -20,7 +20,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
 
 
-router.post('/create', asyncHandler(async (req, res) => {
+router.post('/create', asyncHandler(async (req, res, next) => {
     const { userId, drink, location, comment } = req.body;
 
     const drinkId = await Drink.findOne({
@@ -35,14 +35,23 @@ router.post('/create', asyncHandler(async (req, res) => {
         }
     })
 
-    const checkin = await Checkin.create({
-        userId,
-        drinkId: drinkId.id,
-        storeId: storeId.id,
-        comment
-    })
+    if (drinkId && storeId) {
 
-    res.json(checkin)
+        const checkin = await Checkin.create({
+            userId,
+            drinkId: drinkId.id,
+            storeId: storeId.id,
+            comment
+        })
+
+        res.json(checkin)
+    } else {
+        const err = new Error('Checkin Create Failed');
+        err.status = 409;
+        err.title = 'Checkin Create Failed'
+        err.errors = ['Please provide an existing drink and location.'];
+        return next(err);
+    }
 }))
 
 router.get('/:checkinId', asyncHandler(async (req, res) => {

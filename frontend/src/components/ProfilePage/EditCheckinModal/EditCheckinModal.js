@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
-import * as userActions from '../../../store/users';
+import './EditCheckinModal.css'
 
 function EditCheckinModal({ setShowModal, checkin }) {
+
+    console.log('EDIT MODAL', checkin);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -41,7 +43,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <input
                             type='text'
                             className="update-checkin-input-drink"
-                            value={checkin[0].Drink.name}
+                            value={checkin.Drink?.name}
                             onChange={(e) => setDrink(e.target.value)}
                             required
                         />
@@ -54,7 +56,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <input
                             type='text'
                             className="update-checkin-input-location"
-                            value={checkin[0].Store.name}
+                            value={checkin.Store?.name}
                             onChange={(e) => setLocation(e.target.value)}
                             required
                         />
@@ -67,7 +69,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                         <input
                             type='textarea'
                             className="update-checkin-input-comment"
-                            value={checkin[0].comment}
+                            value={checkin.comment}
                             onChange={(e) => setComment(e.target.value)}
                             required
                         />

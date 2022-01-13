@@ -1,0 +1,23 @@
+.profile-checkin-card button {
+    display: block;
+    padding: 9px;
+    width: 8em;
+    border: 1px solid #DDDDDD;
+    color: whitesmoke;
+    text-decoration: none;
+    background-color: var(--accent-dark);
+    margin-bottom: 30px;
+    border-radius: 3px;
+    border: none;
+    margin: auto;
+    text-align: center;
+}
+
+.profile-checkin-card button:hover {
+    box-shadow: inset -.75px -.65px 4px 1px var(--primary-accent);
+    color: #FFF;
+}
+
+.user-checkin-edit-and-delete {
+    display: flex;
+}
