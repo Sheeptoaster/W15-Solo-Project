@@ -61,7 +61,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.create-checkin-form input[type='text'], input[type='textarea'] {
+.create-checkin-form select, input[type='textarea'] {
     box-sizing: border-box;
     width: 100%;
     display: block;
