@@ -155,12 +155,20 @@ const userReducer = (state = initialState, action) => {
         }
 
         case UPDATE_CHECKIN: {
-            console.log(state.checkins.currentUser);
-            const index = state.checkins.currentUser.findIndex((checkin) => checkin.id === action.payload.id)
+            console.log('CHECKIN UPDATE', state.checkins.currentUser);
+            console.log('CHECKIN PAYLOAD', action.payload);
+            const index = state.checkins.currentUser.findIndex(checkin => checkin.id === action.payload.id)
 
-            state.checkins.currentUser = { ...action.payload };
+            console.log('INDEX', index);
 
-            return { ...state, ...state.checkins.currentUser }
+            return {
+                ...state,
+                ...state.checkins = {
+                    ...state.checkins.currentUser.slice(0, index),
+                    ...action.payload,
+                    ...state.checkins.currentUser.slice(index),
+                }
+            }
         }
 
         default:
