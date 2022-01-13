@@ -11,7 +11,8 @@ import './DrinksPage.css'
 function DrinksPage() {
     const dispatch = useDispatch();
 
-    const drinks = useSelector(state => state.drinks.drinks)
+    const drinks = useSelector(state => state.drinks.drinks.drinks)
+    console.log('DRINKS', drinks);
 
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
@@ -21,7 +22,7 @@ function DrinksPage() {
     return (
         <>
             <div className="main-container-drink-details">
-                {drinks?.drinks?.data?.map((drink) => {
+                {drinks?.payload?.data?.map((drink) => {
                     return (
                         <div key={drink.id} className="drink-details-container">
 
