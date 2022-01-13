@@ -22,7 +22,7 @@ function DrinksPage() {
     return (
         <>
             <div className="main-container-drink-details">
-                {drinks?.payload?.data?.map((drink) => {
+                {drinks?.data?.map((drink) => {
                     return (
                         <div key={drink.id} className="drink-details-container">
 
