@@ -1,3 +1,4 @@
+import { csrfFetch } from "./csrf";
 
 const LOAD_STORES_OVERVIEW = 'stores/loadStoresOverview';
 const LOAD_ALL_STORES = 'stores/loadAllStores';
@@ -18,7 +19,7 @@ const loadAllStores = store => {
 
 
 export const getStoresOverview = () => async dispatch => {
-    const res = await fetch('/api/stores');
+    const res = await csrfFetch('/api/stores');
     if(res.ok) {
         const storeOverview = await res.json();
         dispatch(loadStoresOverview(storeOverview))
@@ -27,7 +28,7 @@ export const getStoresOverview = () => async dispatch => {
 
 
 export const getStores = () => async dispatch => {
-    const res = await fetch('/api/stores/loadstores');
+    const res = await csrfFetch('/api/stores/loadstores');
     if(res.ok) {
         const allStores = await res.json();
         dispatch(loadAllStores(allStores))

@@ -51,7 +51,7 @@ const updateCheckin = checkin => {
 }
 
 export const getUser = id => async dispatch => {
-    const res = await fetch(`/api/users/${id}/`);
+    const res = await csrfFetch(`/api/users/${id}/`);
     if (res.ok) {
         const user = await res.json();
         dispatch(loadUser(user.currentUser))
@@ -60,7 +60,7 @@ export const getUser = id => async dispatch => {
 
 
 export const getUserCheckins = (id) => async dispatch => {
-    const res = await fetch(`/api/users/${id}/checkins`);
+    const res = await csrfFetch(`/api/users/${id}/checkins`);
     if (res.ok) {
         const userCheckins = await res.json();
         dispatch(loadUserCheckin(userCheckins.userDetails))
@@ -68,7 +68,7 @@ export const getUserCheckins = (id) => async dispatch => {
 }
 
 export const getCheckinOverview = () => async dispatch => {
-    const res = await fetch('/api/checkins/');
+    const res = await csrfFetch('/api/checkins/');
     if(res.ok) {
         const checkinOverview = await res.json();
         dispatch(loadCheckinOverview(checkinOverview))

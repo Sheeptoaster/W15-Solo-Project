@@ -27,7 +27,7 @@ const findDrinks = findDrink => {
 
 
 export const getDrinksOverview = () => async dispatch => {
-    const res = await fetch('/api/drinks/');
+    const res = await csrfFetch('/api/drinks/');
     if (res.ok) {
         const drinkOverview = await res.json();
         dispatch(loadDrinksOverview(drinkOverview))
@@ -35,7 +35,7 @@ export const getDrinksOverview = () => async dispatch => {
 }
 
 export const getDrinks = () => async dispatch => {
-    const res = await fetch('/api/drinks/loaddrinks');
+    const res = await csrfFetch('/api/drinks/loaddrinks');
     if (res.ok) {
         const allDrinks = await res.json();
         dispatch(loadAllDrinks(allDrinks));
