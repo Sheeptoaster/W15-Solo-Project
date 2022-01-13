@@ -5,7 +5,6 @@ import EditCheckinCard from "./EditCheckinCard/EditCheckinCard";
 import './ProfileCheckin.css'
 
 function ProfileCheckin({ user, checkin, sessionUser }) {
-
     if (user.id === sessionUser?.id) {
         return (
             <>
@@ -14,8 +13,9 @@ function ProfileCheckin({ user, checkin, sessionUser }) {
                 </h2>
                 <div className="profile-checkin-container">
                     {checkin?.map((check) => {
-                        <EditCheckinCard check={check} user={user} />
-                        {console.log(check);}
+                        return (
+                            <EditCheckinCard key={check.id} check={check} user={user} />
+                        )
                     })}
                 </div>
             </>

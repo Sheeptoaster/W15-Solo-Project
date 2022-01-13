@@ -10,3 +10,16 @@
 body {
     background-color: var(--accent-light);
 }
+
+.errors-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errors {
+    list-style: none;
+    color: var(--accent-dark);
+    font-size:medium;
+    font-weight: bold;
+}

@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Sheeptoaster/W15-Solo-Project/issues"
   },
-  "homepage": "https://github.com/Sheeptoaster/W15-Solo-Project#readme"
+  "homepage": "https://github.com/Sheeptoaster/W15-Solo-Project#readme",
+  "dependencies": {
+    "react-autosuggest": "^10.1.0"
+  }
 }

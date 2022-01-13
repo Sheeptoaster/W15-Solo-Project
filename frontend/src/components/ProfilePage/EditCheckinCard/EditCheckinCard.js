@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal } from '../../../context/Modal';
-
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import EditCheckinModal from "../EditCheckinModal/EditCheckinModal";
 
+import * as userActions from '../../../store/users';
 
+import './EditCheckinCard.css'
 
 
 function EditCheckinCard({ check, user }) {
+    const dispatch = useDispatch()
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+
+        dispatch(userActions.deleteUserCheckin(check.id))
+    }
+
+
+
     const [showModal, setShowModal] = useState(false);
-    console.log(user);
     return (
         <div key={check.id} className="profile-checkin-card" id={check.id}>
 
@@ -41,7 +53,7 @@ function EditCheckinCard({ check, user }) {
                     </Modal>
                 )}
 
-                <button className="user-checkin-delete">Delete</button>
+                <button onClick={handleDelete} className="user-checkin-delete">Delete</button>
             </div>
 
         </div>

@@ -4,6 +4,7 @@ const LOAD_USER = 'users/loadUser';
 const LOAD_USER_CHECKIN = 'users/loadUserCheckin';
 const LOAD_CHECKIN_OVERVIEW = 'users/loadCheckinOverview';
 const ADD_CHECKIN = 'users/addCheckin';
+const DELETE_CHECKIN = 'users/deleteCheckin';
 
 
 const loadUser = user => {
@@ -30,6 +31,13 @@ const loadCheckinOverview = checkin => {
 const addCheckin = checkin => {
     return {
         type: ADD_CHECKIN,
+        payload: checkin
+    }
+}
+
+const deleteCheckin = checkin => {
+    return {
+        type: DELETE_CHECKIN,
         payload: checkin
     }
 }
@@ -76,6 +84,14 @@ export const addUserCheckin = (data) => async dispatch => {
     return newData;
 }
 
+export const deleteUserCheckin = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/checkins/${id}/delete`, {
+        method: "DELETE",
+    })
+
+    dispatch(deleteCheckin(res))
+}
+
 const initialState = {
     user: {},
     checkins: {},
@@ -100,6 +116,13 @@ const userReducer = (state = initialState, action) => {
 
         case ADD_CHECKIN: {
             return { ...state, checkins: action.payload }
+        }
+
+        case DELETE_CHECKIN: {
+            return {
+                ...state,
+                checkins: { ...state.checkins.filter(checkin => checkin !== action.payload )}
+            }
         }
 
         default:

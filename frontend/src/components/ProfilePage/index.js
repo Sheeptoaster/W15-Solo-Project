@@ -23,6 +23,7 @@ function ProfilePage() {
     useEffect(() => {
         dispatch(userActions.getUser(id))
         dispatch(userActions.getUserCheckins(+id))
+        document.title = "Profile Page"
     }, [id, dispatch])
 
     return (

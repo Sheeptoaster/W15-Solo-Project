@@ -15,6 +15,7 @@ function DrinksPage() {
 
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
+        document.title = 'Drinks'
     }, [dispatch])
 
     return (
