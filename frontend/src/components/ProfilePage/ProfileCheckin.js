@@ -5,6 +5,7 @@ import EditCheckinCard from "./EditCheckinCard/EditCheckinCard";
 import './ProfileCheckin.css'
 
 function ProfileCheckin({ user, checkin, sessionUser }) {
+
     if (user.id === sessionUser?.id) {
         return (
             <>
