@@ -99,8 +99,9 @@ export const deleteUserCheckin = (id) => async dispatch => {
     dispatch(deleteCheckin(res))
 }
 
-export const updateUserCheckin = (id, body) => async dispatch => {
+export const updateUserCheckin = (id, body, userId) => async dispatch => {
     const { drink, location, comment } = body;
+    console.log('STORE', userId);
 
     const res = await csrfFetch(`/api/checkins/${id}/edit`, {
         method: "PUT",
@@ -111,9 +112,11 @@ export const updateUserCheckin = (id, body) => async dispatch => {
         })
     });
 
-    const data = await res.json();
+    const data = await res.json()
 
     dispatch(updateCheckin(data))
+
+    dispatch(getUserCheckins(userId))
 
     return data;
 }

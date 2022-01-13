@@ -15,6 +15,8 @@ function EditCheckinModal({ setShowModal, checkin }) {
 
     const { id } = useParams();
 
+    const userId = id;;
+
     const [drink, setDrink] = useState(checkin?.Drink?.name);
     const [location, setLocation] = useState(checkin?.Store?.name);
     const [comment, setComment] = useState(checkin?.comment);
@@ -26,12 +28,11 @@ function EditCheckinModal({ setShowModal, checkin }) {
     useEffect(() => {
         dispatch(drinkActions.getDrinks())
         dispatch(storeActions.getStores())
-        dispatch(userActions.getUserCheckins(id))
     }, [dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateUserCheckin(checkin.id, { drink, location, comment }))
+        dispatch(updateUserCheckin(checkin.id, { drink, location, comment }, userId))
         return setShowModal(false)
     }
 
