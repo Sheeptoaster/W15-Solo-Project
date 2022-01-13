@@ -24,7 +24,7 @@ function ProfilePage() {
         dispatch(userActions.getUser(id))
         dispatch(userActions.getUserCheckins(+id))
         document.title = "Profile Page"
-    }, [id, dispatch])
+    }, [dispatch])
 
     return (
         <div>

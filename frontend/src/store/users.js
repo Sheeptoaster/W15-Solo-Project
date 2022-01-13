@@ -148,7 +148,7 @@ const userReducer = (state = initialState, action) => {
         case DELETE_CHECKIN: {
             return {
                 ...state,
-                checkins: { ...state.checkins.filter(checkin => checkin !== action.payload )}
+                checkins: { ...state.checkins.currentUser.filter(checkin => checkin !== action.payload )}
             }
         }
 
