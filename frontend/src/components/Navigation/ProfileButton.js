@@ -35,7 +35,7 @@ function ProfileButton({ user }) {
         <>
             <button onClick={openMenu}>
                 <img
-                    src={'https://res.cloudinary.com/dsjuna344/image/upload/v1642134466/bars/ReTappdLogo_zoa8e7.png'}
+                    src={'https://res.cloudinary.com/dsjuna344/image/upload/v1642134904/bars/ReTappdLogo_xlxzva.png'}
                     height={'100em'}
                     width={'100em'}
                 ></img>
