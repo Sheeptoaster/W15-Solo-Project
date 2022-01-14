@@ -34,10 +34,16 @@ function CreateCheckinModal({ setShowModal, user }) {
         setErrors([])
 
         dispatch(userActions.getUserCheckins(id))
-
-        dispatch(userActions.addUserCheckin({ user, drink, location, comment }))
-
-        return setShowModal(false)
+        if(!drink.length || !location.length || !comment.length) {
+            dispatch(userActions.addUserCheckin({ user, drink, location, comment }))
+            .catch(async (res) => {
+                const data = await res.json();
+                if(data && data.errors) setErrors(data.errors)
+                return;
+            })
+        } else {
+            setShowModal(false)
+        }
     }
     const handleCancel = (e) => {
         e.preventDefault()
@@ -66,7 +72,6 @@ function CreateCheckinModal({ setShowModal, user }) {
                             className="create-checkin-input-drink"
                             value={drink}
                             onChange={(e) => setDrink(e.target.value)}
-                            required
                         >
                             <option value="" disabled>Please select a Drink</option>
                             {drinks?.drinks?.data?.map((drink) => {
@@ -89,7 +94,7 @@ function CreateCheckinModal({ setShowModal, user }) {
                             className="create-checkin-input-location"
                             value={location}
                             onChange={(e) => setLocation(e.target.value)}
-                            required>
+                            >
                                 <option value="" disabled>Please select a Bar</option>
                             {stores?.data?.map((store) => {
                                 return (
@@ -112,7 +117,6 @@ function CreateCheckinModal({ setShowModal, user }) {
                             className="create-checkin-input-comment"
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                            required
                         />
                     </div>
 
