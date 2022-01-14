@@ -11,6 +11,7 @@ import SplashPage from "./components/SplashPage";
 import ProfilePage from "./components/ProfilePage";
 import DrinksPage from "./components/DrinksPage";
 import StoresPage from "./components/StoresPage";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,8 +48,8 @@ function App() {
 
         </Switch>
 
-
       )}
+      <Footer />
 
 
     </>
