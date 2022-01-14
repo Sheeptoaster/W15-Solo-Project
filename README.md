@@ -51,13 +51,13 @@ Edit and delete functionality for checkins
 ### CSS
 
 ## Upcoming Features
-Creating, updating, and deleting bars.
+[]Creating, updating, and deleting bars.
 
-Creating, updating, and deleting drinks.
+[]Creating, updating, and deleting drinks.
 
-Badges to show off number of checkins
+[]Badges to show off number of checkins
 
-Ability to comment on others checkins
+[]Ability to comment on others checkins
 
 ## Challenges
 Creating a modal edit for each of the users checkins was a really challenging concept and felt like a huge success to be able to pull off.
@@ -65,6 +65,8 @@ Creating a modal edit for each of the users checkins was a really challenging co
 I had to create a component that would render inside of the map and pass down the data being iterated over as props to each component.
 
 I also had to create the modalState inside of the component so that setting the showModal state to true did not set the state for each edit modal to true as well.
+
+
 ![](https://res.cloudinary.com/dsjuna344/image/upload/v1642112858/screenshots/EditCheckinFunction_x0uogo.png)
 ![](https://res.cloudinary.com/dsjuna344/image/upload/v1642112856/screenshots/ScreenshotCheckinModalcard_dvwrju.png)
 
