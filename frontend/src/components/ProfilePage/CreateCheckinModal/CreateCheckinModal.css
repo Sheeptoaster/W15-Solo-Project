@@ -1,7 +1,7 @@
 .create-checkin-container {
     display: flex;
     width: 50em;
-    height: 40em;
+    height: 50em;
     margin: 2% auto;
     align-content: flex-start;
 }

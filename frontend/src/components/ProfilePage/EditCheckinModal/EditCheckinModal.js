@@ -20,6 +20,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
     const [drink, setDrink] = useState(checkin?.Drink?.name);
     const [location, setLocation] = useState(checkin?.Store?.name);
     const [comment, setComment] = useState(checkin?.comment);
+    const [errors, setErrors] = useState([]);
 
     const stores = useSelector(state => state.stores.stores)
     const drinks = useSelector(state => state.drinks.drinks)
@@ -32,8 +33,18 @@ function EditCheckinModal({ setShowModal, checkin }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateUserCheckin(checkin.id, { drink, location, comment }, userId))
-        return setShowModal(false)
+
+        if (!drink.length || !location.length || !comment.length) {
+            dispatch(updateUserCheckin(checkin.id, { drink, location, comment }, userId))
+                .catch(async (res) => {
+                    const data = await res.json();
+                    if (data && data.errors) setErrors(data.errors)
+                    return;
+                })
+        } else {
+            dispatch(updateUserCheckin(checkin.id, { drink, location, comment }, userId))
+            setShowModal(false)
+        }
     }
 
     const handleCancel = (e) => {
@@ -46,6 +57,11 @@ function EditCheckinModal({ setShowModal, checkin }) {
         <>
             <div className="update-checkin-container">
                 <form onSubmit={handleSubmit} className="update-checkin-form">
+                    <ul className='errors-container'>
+                        {errors.map((error, idx) => (
+                            <li className='errors' key={idx}>{error}</li>
+                        ))}
+                    </ul>
 
                     <h1 className="update-user-checkin">Checkin</h1>
                     <div>
@@ -53,9 +69,8 @@ function EditCheckinModal({ setShowModal, checkin }) {
                             What did you drink?
                         </label>
                         <select
-                        className="create-checkin-input-drink"
-                        value={drink} onChange={(e) => setDrink(e.target.value)}
-                        required
+                            className="create-checkin-input-drink"
+                            value={drink} onChange={(e) => setDrink(e.target.value)}
                         >
                             {drinks?.drinks?.data?.map((drink) => {
                                 return (
@@ -70,9 +85,9 @@ function EditCheckinModal({ setShowModal, checkin }) {
                             Where are you drinking?
                         </label>
                         <select
-                        className="create-checkin-input-location"
-                        value={location} onChange={(e) => setLocation(e.target.value)}
-                        required>
+                            className="create-checkin-input-location"
+                            value={location} onChange={(e) => setLocation(e.target.value)}
+                        >
                             {stores?.data?.map((store) => {
                                 return (
                                     <option key={store.id} value={store.name}>{store.name}</option>
@@ -90,7 +105,6 @@ function EditCheckinModal({ setShowModal, checkin }) {
                             className="update-checkin-input-comment"
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                            required
                         />
                     </div>
 
