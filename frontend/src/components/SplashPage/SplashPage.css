@@ -1,3 +1,13 @@
+.site-title-header {
+    display: flex;
+    justify-content: center;
+}
+
+.site-title-header img {
+    width: 60vw;
+    height: 30em;
+}
+
 
 .checkin-user-username > a {
     color: var(--accent-dark)

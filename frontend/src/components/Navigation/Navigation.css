@@ -16,7 +16,7 @@
 }
 
 .navbar > div {
-	color: var(--primary-accent);
+    color: var(--primary-accent);
 	padding: .75em;
 	text-align: center;
 	text-decoration: none;
@@ -76,7 +76,7 @@
     list-style-type: none;
     text-align: center;
     font-size: larger;
-    top: 1.35em;
+    top: 1.95em;
     left: 75%;
 }
 

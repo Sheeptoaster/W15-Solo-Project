@@ -29,7 +29,10 @@ function SplashPage() {
 
     return (
         <div>
-
+            <div className='site-title-header'>
+                <img src='https://res.cloudinary.com/dsjuna344/image/upload/v1642135311/bars/ReTappd_2_coawtz.png'>
+                </img>
+            </div>
             <CheckinOverview checkin={checkin} />
 
             <DrinkOverview drinks={drinks} />
