@@ -101,7 +101,6 @@ export const deleteUserCheckin = (id) => async dispatch => {
 
 export const updateUserCheckin = (id, body, userId) => async dispatch => {
     const { drink, location, comment } = body;
-    console.log('STORE', userId);
 
     const res = await csrfFetch(`/api/checkins/${id}/edit`, {
         method: "PUT",
