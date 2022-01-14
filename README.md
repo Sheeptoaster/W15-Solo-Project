@@ -51,13 +51,13 @@ Edit and delete functionality for checkins
 ### CSS
 
 ## Upcoming Features
-[]Creating, updating, and deleting bars.
+-[ ]Creating, updating, and deleting bars.
 
-[]Creating, updating, and deleting drinks.
+-[ ]Creating, updating, and deleting drinks.
 
-[]Badges to show off number of checkins
+-[ ]Badges to show off number of checkins
 
-[]Ability to comment on others checkins
+-[ ]Ability to comment on others checkins
 
 ## Challenges
 Creating a modal edit for each of the users checkins was a really challenging concept and felt like a huge success to be able to pull off.
