@@ -23,7 +23,7 @@ function StoresPage() {
                         <div key={store.id} className="store-details-container">
 
                             <div className="store-details-header">
-                                <NavLink to={`/stores/${store.id}`} className="storepage-navlink-store-details">{store.name}</NavLink>
+                                <span className="storepage-navlink-store-details">{store.name}</span>
                                 <h3 className="store-location">{store.location}</h3>
                             </div>
 
