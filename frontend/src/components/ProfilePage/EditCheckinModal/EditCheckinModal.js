@@ -42,6 +42,7 @@ function EditCheckinModal({ setShowModal, checkin }) {
                     return;
                 })
         } else {
+            dispatch(updateUserCheckin(checkin.id, { drink, location, comment }, userId))
             setShowModal(false)
         }
     }

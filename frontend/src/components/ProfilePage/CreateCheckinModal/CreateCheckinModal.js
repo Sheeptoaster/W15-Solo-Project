@@ -39,9 +39,9 @@ function CreateCheckinModal({ setShowModal, user }) {
             .catch(async (res) => {
                 const data = await res.json();
                 if(data && data.errors) setErrors(data.errors)
-                return;
             })
         } else {
+            dispatch(userActions.addUserCheckin({ user, drink, location, comment }))
             setShowModal(false)
         }
     }
